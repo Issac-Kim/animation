@@ -2,7 +2,7 @@ var c = document.getElementById("thing");
 var ctx = c.getContext("2d");
 ctx.fillStyle = "#ffff00";
 
-var rid;
+var rid = 0;
 
 var circle = function(){
     var r = 0;
@@ -27,14 +27,14 @@ var circle = function(){
 	    r--;
 	}
 	rid = window.requestAnimationFrame(animate);
-    }
+    };
     animate();
-}
+};
 
 var circle_button = document.getElementById("circle");
 circle_button.addEventListener("click", circle);
 
-var dvd = function(){
+/*var dvd = function(){
 
 }
 
@@ -47,3 +47,4 @@ var stop = function(){
 
 var stop_button = document.getElementById("stop");
 stop_button.addEventListener("click", stop);
+*/
