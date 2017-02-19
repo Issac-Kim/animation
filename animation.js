@@ -27,15 +27,32 @@ var circle = function(){
 	    r--;
 	}
 	rid = window.requestAnimationFrame(animate);
-    };
+    }
     animate();
-};
+}
 
 var circle_button = document.getElementById("circle");
 circle_button.addEventListener("click", circle);
 
-/*var dvd = function(){
+var getRandomX  = function(){
+    return Math.floor(Math.random() * 470)
+}
 
+var getRandomY  = function(){
+    return Math.floor(Math.random() * 490)
+}
+
+var dvd = function(){
+    var x = getRandomX();
+    var y = getRandomY();
+    window.cancelAnimationFrame(rid);
+    var animate = function(){
+	ctx.clearRect(0,0,500,500);
+	ctx.beginPath();
+	ctx.fillRect(x,y,30,10);
+	
+    }
+    animate();
 }
 
 var dvd_button = document.getElementById("dvd");
@@ -47,4 +64,4 @@ var stop = function(){
 
 var stop_button = document.getElementById("stop");
 stop_button.addEventListener("click", stop);
-*/
+
