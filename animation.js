@@ -35,22 +35,41 @@ var circle_button = document.getElementById("circle");
 circle_button.addEventListener("click", circle);
 
 var getRandomX  = function(){
-    return Math.floor(Math.random() * 470)
+    return Math.floor(Math.random() * 410)
 }
 
 var getRandomY  = function(){
-    return Math.floor(Math.random() * 490)
+    return Math.floor(Math.random() * 440)
 }
 
 var dvd = function(){
     var x = getRandomX();
     var y = getRandomY();
+    var inc_x = true;
+    var inc_y = false;
+    var img = new Image();
+    img.src = "dvd.png";
     window.cancelAnimationFrame(rid);
     var animate = function(){
+	if(x == 0 || x == 410){
+	    inc_x = !inc_x;
+	}
+	if(y == 0 || y == 440){
+	    inc_y = !inc_y;
+	}
 	ctx.clearRect(0,0,500,500);
 	ctx.beginPath();
-	ctx.fillRect(x,y,30,10);
-	
+	ctx.drawImage(img,x,y,90,60);
+	if(inc_x){
+	    x++;
+	}if(!inc_x){
+	    x--;
+	}if(inc_y){
+	    y++;
+	}if(!inc_y){
+	    y--;
+	}
+	rid = window.requestAnimationFrame(animate);
     }
     animate();
 }
